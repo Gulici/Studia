@@ -1,0 +1,52 @@
+# Compile of adder.sv was successful.
+# Compile of adder.sv was successful.
+# Compile of tb.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui test.tb_top
+# vsim -gui test.tb_top 
+# Start time: 16:29:34 on Apr 16,2024
+# Loading sv_std.std
+# Loading test.tb_top
+# Loading test.full_adder
+add wave -position insertpoint sim:/tb_top/*
+add wave -position insertpoint sim:/tb_top/fa/*
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run
+# At time 0: a=0 b=0, cin=0, sum=z, carry=0
+# At time 1: a=0 b=0, cin=1, sum=z, carry=0
+# At time 2: a=0 b=1, cin=0, sum=z, carry=0
+# At time 3: a=0 b=1, cin=1, sum=z, carry=1
+# At time 4: a=1 b=0, cin=0, sum=z, carry=0
+# At time 5: a=1 b=0, cin=1, sum=z, carry=1
+# At time 6: a=1 b=1, cin=0, sum=z, carry=1
+# At time 7: a=1 b=1, cin=1, sum=z, carry=1
+run
+restart
+run
+# At time 0: a=0 b=0, cin=0, sum=z, carry=0
+# At time 1: a=0 b=0, cin=1, sum=z, carry=0
+# At time 2: a=0 b=1, cin=0, sum=z, carry=0
+# At time 3: a=0 b=1, cin=1, sum=z, carry=1
+# At time 4: a=1 b=0, cin=0, sum=z, carry=0
+# At time 5: a=1 b=0, cin=1, sum=z, carry=1
+# At time 6: a=1 b=1, cin=0, sum=z, carry=1
+# At time 7: a=1 b=1, cin=1, sum=z, carry=1
+# Compile of adder.sv was successful.
+# Compile of tb.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading test.tb_top
+# Loading test.full_adder
+run
+# At time 0: a=0 b=0, cin=0, sum=0, carry=0
+# At time 1: a=0 b=0, cin=1, sum=1, carry=0
+# At time 2: a=0 b=1, cin=0, sum=1, carry=0
+# At time 3: a=0 b=1, cin=1, sum=0, carry=1
+# At time 4: a=1 b=0, cin=0, sum=1, carry=0
+# At time 5: a=1 b=0, cin=1, sum=0, carry=1
+# At time 6: a=1 b=1, cin=0, sum=0, carry=1
+# At time 7: a=1 b=1, cin=1, sum=1, carry=1
+# End time: 21:22:03 on Apr 16,2024, Elapsed time: 4:52:29
+# Errors: 0, Warnings: 1

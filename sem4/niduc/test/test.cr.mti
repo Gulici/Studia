@@ -1,0 +1,15 @@
+D:/Studia/sem4/niduc/test/tb.sv {1 {vlog -work test -sv -stats=none D:/Studia/sem4/niduc/test/tb.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module tb_top
+
+Top level modules:
+	tb_top
+
+} {} {}} D:/Studia/sem4/niduc/test/adder.sv {1 {vlog -work test -sv -stats=none D:/Studia/sem4/niduc/test/adder.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module full_adder
+
+Top level modules:
+	full_adder
+
+} {} {}}
