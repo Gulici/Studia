@@ -1,0 +1,140 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/Studia/sem4/niduc/test
+vCPA_4bit
+Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z1 !s110 1713636410
+!i10b 1
+!s100 BVTi9zbKNf?FUo>]MbBV52
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Ia_?O4KVGVBQ18NB:WLRT42
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+S1
+Z4 dD:/Studia/sem4/niduc/proj
+w1713635134
+8D:/Studia/sem4/niduc/proj/4bitCPA.sv
+FD:/Studia/sem4/niduc/proj/4bitCPA.sv
+!i122 292
+L0 1 16
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1713636409.000000
+!s107 D:/Studia/sem4/niduc/proj/4bitCPA.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/Studia/sem4/niduc/proj/4bitCPA.sv|
+!i113 1
+Z7 o-work work -sv
+Z8 tCvgOpt 0
+n@c@p@a_4bit
+vFAdder
+R0
+Z9 !s110 1713636409
+!i10b 1
+!s100 d]KQGeOiFYPBeRh]EbH0j3
+R2
+IE8L<>Z?JWWFgB[eRE4]Yo2
+R3
+S1
+R4
+w1713634405
+8D:/Studia/sem4/niduc/proj/FAdder.sv
+FD:/Studia/sem4/niduc/proj/FAdder.sv
+!i122 290
+Z10 L0 1 20
+R5
+r1
+!s85 0
+31
+R6
+!s107 D:/Studia/sem4/niduc/proj/FAdder.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/Studia/sem4/niduc/proj/FAdder.sv|
+!i113 1
+R7
+R8
+n@f@adder
+vFAdder_2
+R0
+!s110 1713633403
+!i10b 1
+!s100 8WdgUFiBE8OLARZlU6Jf03
+R2
+ILPTo8Gg<>1BI=ZIY>K4RV1
+R3
+S1
+R4
+w1713631091
+8D:/Studia/sem4/niduc/proj/FAdder_2.sv
+FD:/Studia/sem4/niduc/proj/FAdder_2.sv
+!i122 222
+R10
+R5
+r1
+!s85 0
+31
+!s108 1713633402.000000
+!s107 D:/Studia/sem4/niduc/proj/FAdder_2.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/Studia/sem4/niduc/proj/FAdder_2.sv|
+!i113 1
+R7
+R8
+n@f@adder_2
+vtest4bitcpa
+R0
+R1
+!i10b 1
+!s100 TcjV@hiKdPU_imaa3jHX=1
+R2
+I7`4H2VXc9BHRnA12hGK4`2
+R3
+S1
+R4
+w1713636023
+8D:/Studia/sem4/niduc/proj/test4bitcpa.sv
+FD:/Studia/sem4/niduc/proj/test4bitcpa.sv
+!i122 293
+L0 1 23
+R5
+r1
+!s85 0
+31
+!s108 1713636410.000000
+!s107 D:/Studia/sem4/niduc/proj/test4bitcpa.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/Studia/sem4/niduc/proj/test4bitcpa.sv|
+!i113 1
+R7
+R8
+vtestAdder
+R0
+R9
+!i10b 1
+!s100 _SVeL]Y;A7z4EfQP?T]:^2
+R2
+I_a@m6]IkaQFB2^5Ln8W1n1
+R3
+S1
+R4
+w1713633330
+8D:/Studia/sem4/niduc/proj/testAdder.sv
+FD:/Studia/sem4/niduc/proj/testAdder.sv
+!i122 291
+L0 1 41
+R5
+r1
+!s85 0
+31
+R6
+!s107 D:/Studia/sem4/niduc/proj/testAdder.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/Studia/sem4/niduc/proj/testAdder.sv|
+!i113 1
+R7
+R8
+ntest@adder

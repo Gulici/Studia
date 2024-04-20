@@ -1,0 +1,16 @@
+# Compile of FAdder.sv was successful.
+# Compile of testAdder.sv was successful.
+# Compile of 4bitCPA.sv was successful.
+# Compile of test4bitcpa.sv was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.test4bitcpa
+# vsim -gui work.test4bitcpa 
+# Start time: 20:07:20 on Apr 20,2024
+# Loading sv_std.std
+# Loading work.test4bitcpa
+# Loading work.CPA_4bit
+# Loading work.FAdder
+run
+# A= 5 B= 3 S= 7 cout=0
+# End time: 20:07:47 on Apr 20,2024, Elapsed time: 0:00:27
+# Errors: 0, Warnings: 2

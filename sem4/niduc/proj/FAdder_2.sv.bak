@@ -1,0 +1,20 @@
+module FAdder_2(
+	input a,b,c,
+	input byte err,
+	output sum, cout
+);	
+	wire wa,wb,wc;
+	wire w1,w2,w3;
+	
+	// mo?liwe uszkodzenie wejscia
+	assign wa = 	err == 3'b001 ? 0 : a;
+	assign wb = 	err == 3'b010 ? 0 : b;
+	assign wc = 	err == 3 ? 0 : c;
+
+	assign w1 = 	err == 4 ? 0 : a ^ b;
+	assign sum = 	err == 5 ? 0 : w1 ^ c;
+	assign w2 = 	err == 6 ? 0 : w1 & wc;
+	assign w3 = 	err == 7 ? 0 : wa & wb;
+	assign cout =  	err == 8 ? 0 : w2 | w3;
+
+endmodule
