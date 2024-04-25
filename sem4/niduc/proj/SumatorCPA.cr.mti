@@ -1,16 +1,16 @@
-D:/Studia/sem4/niduc/proj/4bitCPA.sv {1 {vlog -work work -sv -stats=none D:/Studia/sem4/niduc/proj/4bitCPA.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module CPA_4bit
-
-Top level modules:
-	CPA_4bit
-
-} {} {}} D:/Studia/sem4/niduc/proj/test4bitcpa.sv {1 {vlog -work work -sv -stats=none D:/Studia/sem4/niduc/proj/test4bitcpa.sv
+D:/Studia/sem4/niduc/proj/test4bitcpa.sv {1 {vlog -work work -sv -stats=none D:/Studia/sem4/niduc/proj/test4bitcpa.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module test4bitcpa
 
 Top level modules:
 	test4bitcpa
+
+} {} {}} D:/Studia/sem4/niduc/proj/4bitCPA.sv {1 {vlog -work work -sv -stats=none D:/Studia/sem4/niduc/proj/4bitCPA.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module CPA_4bit
+
+Top level modules:
+	CPA_4bit
 
 } {} {}} D:/Studia/sem4/niduc/proj/testAdder.sv {1 {vlog -work work -sv -stats=none D:/Studia/sem4/niduc/proj/testAdder.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
