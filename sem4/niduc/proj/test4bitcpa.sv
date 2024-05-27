@@ -15,7 +15,7 @@ module test4bitcpa;
 	err_tab[2] = 0;
 	err_tab[3] = 0;
 	
-	A = 16; B =15; cin = 0;
+	A = 1; B =15; cin = 0;
 	#10; 
 	$display("A=%d B=%d S=%d cout=%b", A,B,sum,cout);
 	end

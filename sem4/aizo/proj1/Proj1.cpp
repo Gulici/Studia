@@ -348,7 +348,15 @@ void exam() {
     cin.clear();
     int wybor = 0;
     int n = 100;
+    int beforeType = 0;
+    int dataType = 0;
     cin >> wybor;
+    cout << "0>Losowe 1>Niemalejace 2>Nierosnace 3>1/3 posortowane 4>2/3 posortowane\n";
+    cin.clear();
+    cin >> beforeType;
+    cout << "0>Int 1>Float\n";
+    cin.clear();
+    cin >> dataType;
     switch(wybor) {
         case 1: {
             int rozmiary[] = {2500,5000,10000,15000,20000,30000,40000};
@@ -358,9 +366,23 @@ void exam() {
                 float sumTime = 0;
                 for(int j = 0; j < n; j++) {
                     if(j%5==0) cout << " " << j;
-                    vector<int> vec = randomInts(rozmiary[i]);
+
+                    vector<int> vecInt;
+                    vector<float> vecFloat;
+                    if(!dataType){
+                        if(beforeType == 0) vecInt = randomInts(rozmiary[i]);
+                        else if (beforeType == 1) vecInt = ascInts(rozmiary[i]);
+                        else if (beforeType == 2) vecInt = descInts(rozmiary[i]);
+                        else if (beforeType == 3) vecInt = asc33Ints(rozmiary[i]);
+                        else if (beforeType == 4) vecInt = asc66Ints(rozmiary[i]);
+                    }
+                    else {
+                        vecFloat = randomFloats(rozmiary[i]);
+                    }
+
                     auto start = chrono::high_resolution_clock::now();
-                    vector<int> res = insertionSort(vec);
+                    if(!dataType) vector<int> res = insertionSort(vecInt);
+                    else vector<float> res = insertionSort(vecFloat);
                     auto end = chrono::high_resolution_clock::now();
                     chrono::duration<double> diff = end - start;
                     auto tms = chrono::duration_cast<chrono::milliseconds>(diff);
@@ -370,7 +392,8 @@ void exam() {
                 float avg = sumTime/n;
                 avgTimes.push_back(avg);
             }
-            saveVecToTxt(avgTimes,"srednie_insertion_int.txt");
+            if(!dataType) saveVecToTxt(avgTimes,"srednie_insertion_int.txt");
+            else saveVecToTxt(avgTimes,"srednie_insertion_float.txt");
             break;
         }
         case 2: {
@@ -381,9 +404,23 @@ void exam() {
                 float sumTime = 0;
                 for(int j = 0; j < n; j++) {
                     if(j%5==0) cout << " " << j;
-                    vector<int> vec = randomInts(rozmiary[i]);
+
+                    vector<int> vecInt;
+                    vector<float> vecFloat;
+                    if(!dataType){
+                        if(beforeType == 0) vecInt = randomInts(rozmiary[i]);
+                        else if (beforeType == 1) vecInt = ascInts(rozmiary[i]);
+                        else if (beforeType == 2) vecInt = descInts(rozmiary[i]);
+                        else if (beforeType == 3) vecInt = asc33Ints(rozmiary[i]);
+                        else if (beforeType == 4) vecInt = asc66Ints(rozmiary[i]);
+                    }
+                    else {
+                        vecFloat = randomFloats(rozmiary[i]);
+                    }
+
                     auto start = chrono::high_resolution_clock::now();
-                    vector<int> res = heapSort(vec);
+                    if(!dataType) vector<int> res = heapSort(vecInt);
+                    else vector<float> res = heapSort(vecFloat);
                     auto end = chrono::high_resolution_clock::now();
                     chrono::duration<double> diff = end - start;
                     auto tms = chrono::duration_cast<chrono::milliseconds>(diff);
@@ -393,7 +430,8 @@ void exam() {
                 float avg = sumTime/n;
                 avgTimes.push_back(avg);
             }
-            saveVecToTxt(avgTimes,"srednie_heap_int.txt");
+            if(!dataType) saveVecToTxt(avgTimes,"srednie_heap_int.txt");
+            else saveVecToTxt(avgTimes,"srednie_heap_float.txt");
             break;
         }
         case 3: {
@@ -404,9 +442,23 @@ void exam() {
                 float sumTime = 0;
                 for(int j = 0; j < n; j++) {
                     if(j%5==0) cout << " " << j;
-                    vector<int> vec = randomInts(rozmiary[i]);
+
+                    vector<int> vecInt;
+                    vector<float> vecFloat;
+                    if(!dataType){
+                        if(beforeType == 0) vecInt = randomInts(rozmiary[i]);
+                        else if (beforeType == 1) vecInt = ascInts(rozmiary[i]);
+                        else if (beforeType == 2) vecInt = descInts(rozmiary[i]);
+                        else if (beforeType == 3) vecInt = asc33Ints(rozmiary[i]);
+                        else if (beforeType == 4) vecInt = asc66Ints(rozmiary[i]);
+                    }
+                    else {
+                        vecFloat = randomFloats(rozmiary[i]);
+                    }
+
                     auto start = chrono::high_resolution_clock::now();
-                    vector<int> res = shellSort(vec);
+                    if(!dataType) vector<int> res = shellSort(vecInt);
+                    else vector<float> res = shellSort(vecFloat);
                     auto end = chrono::high_resolution_clock::now();
                     chrono::duration<double> diff = end - start;
                     auto tms = chrono::duration_cast<chrono::milliseconds>(diff);
@@ -416,7 +468,8 @@ void exam() {
                 float avg = sumTime/n;
                 avgTimes.push_back(avg);
             }
-            saveVecToTxt(avgTimes,"srednie_shell_int.txt");
+            if(!dataType) saveVecToTxt(avgTimes,"srednie_shell_int.txt");
+            else saveVecToTxt(avgTimes,"srednie_shell_float.txt");
             break;
         } 
         case 4: {
@@ -427,9 +480,23 @@ void exam() {
                 float sumTime = 0;
                 for(int j = 0; j < n; j++) {
                     if(j%5==0) cout << " " << j;
-                    vector<int> vec = randomInts(rozmiary[i]);
+
+                    vector<int> vecInt;
+                    vector<float> vecFloat;
+                    if(!dataType){
+                        if(beforeType == 0) vecInt = randomInts(rozmiary[i]);
+                        else if (beforeType == 1) vecInt = ascInts(rozmiary[i]);
+                        else if (beforeType == 2) vecInt = descInts(rozmiary[i]);
+                        else if (beforeType == 3) vecInt = asc33Ints(rozmiary[i]);
+                        else if (beforeType == 4) vecInt = asc66Ints(rozmiary[i]);
+                    }
+                    else {
+                        vecFloat = randomFloats(rozmiary[i]);
+                    }
+
                     auto start = chrono::high_resolution_clock::now();
-                    vector<int> res = shellSort_Knuth(vec);
+                    if(!dataType) vector<int> res = shellSort_Knuth(vecInt);
+                    else vector<float> res = shellSort_Knuth(vecFloat);
                     auto end = chrono::high_resolution_clock::now();
                     chrono::duration<double> diff = end - start;
                     auto tms = chrono::duration_cast<chrono::milliseconds>(diff);
@@ -439,22 +506,38 @@ void exam() {
                 float avg = sumTime/n;
                 avgTimes.push_back(avg);
             }
-            saveVecToTxt(avgTimes,"srednie_shellKnuth_int.txt");
+            if(!dataType) saveVecToTxt(avgTimes,"srednie_shellKnuth_int.txt");
+            else saveVecToTxt(avgTimes,"srednie_shellKnuth_float.txt");
             break;
         }
         case 5: {
-            int rozmiary[] = {50000,100000,200000,400000,800000,1600000,2400000};
-            int type = 0;
+            vector<int> rozmiary = {50000,100000,200000,400000,800000,1600000,2400000};
+            if (beforeType != 0) rozmiary = {2000,5000,8000,12000,15000,18000,22000};
+            int typeVec = 0;
             vector<int> avgTimes;
-            for(type = 0; type < 4; type++){
+            for(typeVec = 0; typeVec < 4; typeVec++){
                 for(int i = 0; i < 7; i++) {
                     cout << "i:" << i;
                     float sumTime = 0;
                     for(int j = 0; j < n; j++) {
                         if(j%5==0) cout << " " << j;
-                        vector<int> vec = randomInts(rozmiary[i]);
+
+                        vector<int> vecInt;
+                        vector<float> vecFloat;
+                        if(!dataType){
+                            if(beforeType == 0) vecInt = randomInts(rozmiary[i]);
+                            else if (beforeType == 1) vecInt = ascInts(rozmiary[i]);
+                            else if (beforeType == 2) vecInt = descInts(rozmiary[i]);
+                            else if (beforeType == 3) vecInt = asc33Ints(rozmiary[i]);
+                            else if (beforeType == 4) vecInt = asc66Ints(rozmiary[i]);
+                        }
+                        else {
+                            vecFloat = randomFloats(rozmiary[i]);
+                        }
+
                         auto start = chrono::high_resolution_clock::now();
-                        vector<int> res = quickSortInit(vec,type);
+                        if(!dataType) vector<int> res = quickSortInit(vecInt, typeVec);
+                        else vector<float> res = quickSortInit(vecFloat, typeVec);
                         auto end = chrono::high_resolution_clock::now();
                         chrono::duration<double> diff = end - start;
                         auto tms = chrono::duration_cast<chrono::milliseconds>(diff);
@@ -465,7 +548,9 @@ void exam() {
                     avgTimes.push_back(avg);
                 }
             }
-            saveVecToTxt(avgTimes,"srednie_quick_int.txt");
+            if(!dataType) saveVecToTxt(avgTimes,"srednie_quick_int.txt");
+            else saveVecToTxt(avgTimes,"srednie_quick_float.txt");
+
             break;
         } 
     }
@@ -542,16 +627,16 @@ vector<int> asc33Ints(int ilosc) {
 
 vector<int> asc66Ints(int ilosc) {
     vector<int> result;
-    int n = ilosc /3;
+    int n = (ilosc/3)*2;
+    for(int i = 0; i < n; i++) {
+        result.push_back(i);
+    }
     random_device rd;
     mt19937 gen(rd());
-    uniform_real_distribution<float> distribution(INT_MIN, INT_MAX-n-1);
+    uniform_real_distribution<float> distribution(n, INT_MAX);
 
     for (int i = 0; i < ilosc-n; ++i) {
         result.push_back(distribution(gen));
-    }
-    for(int i = 0; i < n; i++) {
-        result.push_back(INT_MAX - n + i);
     }
 
     return result;
