@@ -8,16 +8,20 @@ int main() {
     arr.add(2);
     std::cout << arr.get(0) << std::endl;
 
-    Edge e1 = Edge(0,1,5);
-    Edge e2 = Edge(0,1,1);
-    Edge e3 = Edge(0,1,2);
-    Edge e4 = Edge(0,1,3);
-
     Heap<Edge> heap;
-    heap.push(e1);
-    heap.push(e2);
-    heap.push(e3);
-    heap.push(e4);
+    for(int i = 200; i > 0; i--) {
+        Edge e = Edge(0,0,i);
+        heap.push(e);
+    }
+
+    DynamicArray<Edge> edgeArr = heap.getArr();
+
+    for(int i = 0; i < edgeArr.getSize(); i++) {
+        Edge e = edgeArr.get(i);
+        e.print();
+    }
+
+    std::cout<<std::endl;
 
     while(heap.getSize() > 0) {
         Edge t = heap.getFirst();

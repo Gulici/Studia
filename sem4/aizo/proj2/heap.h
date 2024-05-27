@@ -14,6 +14,7 @@ class Heap {
         void push (T element);
         void pop();
         int getSize();
+        DynamicArray<T> getArr();
     private:
         void swap(T &a, T &b);
         void buildHeap(int parentIndex);
@@ -39,17 +40,12 @@ template <class T>
 void Heap<T>::push(T element)
 {   
     // dodanie elementu na koniec kopca
-    queue.add(element);    
+    queue.add(element);
+    last++;
 
-    // znajdz prawidlowa pozycje
-    int i, j;
-    i = last++;  // koniec kopca
-    j = i >> 1; // rodzic
-    while (i && queue.get(j) > element) {
-        swap(queue.get(i),queue.get(j)); //przeniesienie rodzica
-        i = j;
-        j = i >> 1; 
-    }
+    for (int i = last/2-1; i >= 0; i--) {
+        buildHeap(i);
+    }    
 }
 
 template <class T>
@@ -65,6 +61,12 @@ inline void Heap<T>::pop(){
 template <class T>
 inline int Heap<T>::getSize(){
     return last; 
+}
+
+template <class T>
+inline DynamicArray<T> Heap<T>::getArr()
+{
+    return queue;
 }
 
 template <class T>
