@@ -2,7 +2,6 @@
 #define ARR
 #include <iostream>
 #include <ostream>
-#include <memory>
 #include <assert.h>
 #include "edge.h"
 
@@ -37,7 +36,7 @@ DynamicArray<T>::DynamicArray() {
 
 template <class T>
 inline DynamicArray<T>::~DynamicArray(){
-    delete[] data;
+    delete data;
 }
 
 template<class T> int DynamicArray<T>::getSize() const {
