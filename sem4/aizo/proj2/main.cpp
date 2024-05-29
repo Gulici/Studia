@@ -1,33 +1,23 @@
 #include <iostream>
 #include "dynamicArray.h"
 #include "heap.h"
+#include "graph.h"
 #include "edge.h"
 
 int main() {
-    DynamicArray<int> arr;
-    arr.add(2);
-    std::cout << arr.get(0) << std::endl;
 
-    Heap<Edge> heap;
-    for(int i = 200; i > 0; i--) {
-        Edge e = Edge(0,0,i);
-        heap.push(e);
-    }
+    Graph g = Graph(2);
+    g.createConnected();
 
-    DynamicArray<Edge> edgeArr = heap.getArr();
+    DynamicArray<Edge> &edges = g.getEdges();
 
-    for(int i = 0; i < edgeArr.getSize(); i++) {
-        Edge e = edgeArr.get(i);
-        e.print();
+    for (int i = 0; i < edges.getSize(); i++) {
+        std::cout << edges.get(i) << '\n';
     }
 
     std::cout<<std::endl;
 
-    while(heap.getSize() > 0) {
-        Edge t = heap.getFirst();
-        t.print();
-        heap.pop();
-    }
+    g.addEdge();
 
     return 0;
 }

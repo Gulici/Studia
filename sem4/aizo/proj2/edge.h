@@ -10,9 +10,9 @@ class Edge{
     public: 
         Edge();
         Edge(int v1, int v2, int weight);            
-        int getV1();
-        int getV2();
-        int getWeight();
+        int &getV1();
+        int &getV2();
+        int &getWeight();
         void print();
         bool operator>(Edge &other);
         bool operator<(Edge &other);
@@ -26,15 +26,15 @@ Edge::Edge(int v1, int v2, int weight) {
 Edge::Edge() {
 }
 
-int Edge::getV1(){
+int& Edge::getV1(){
     return _v1;
 }
 
-int Edge::getV2(){
+int& Edge::getV2(){
     return _v2;
 }
 
-int Edge::getWeight(){
+int& Edge::getWeight(){
     return _weight;
 }
 
@@ -50,6 +50,13 @@ inline bool Edge::operator>(Edge &other)
 inline bool Edge::operator<(Edge &other)
 {
     return this->getWeight() < other.getWeight();
+}
+
+std::ostream& operator<<(std::ostream &out, Edge &edge) {
+    out << edge.getV1() << ' ';
+    out << edge.getV2() << ' ';
+    out << edge.getWeight(); 
+    return out;
 }
 
 #endif

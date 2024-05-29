@@ -1,66 +1,75 @@
 #ifndef ARR
 #define ARR
 #include <iostream>
+#include <ostream>
 #include <memory>
 #include <assert.h>
+#include "edge.h"
 
 template<class T>
 class DynamicArray {
     T *data;
-    const int MIN_CAPACITY = 64;
-    int CURRENT_CAPACITY = MIN_CAPACITY;
-    int size;
+    const int MIN_CAPACITY = 8;
+    int capacity = MIN_CAPACITY;
+    int _size;
 
     public:        
         DynamicArray();
+        ~DynamicArray();
         int getSize() const;  
-
         T& get(const int pos);
-
-        void add(T element);
-
-        void insert(T element, const int pos);
-
-        void remove(const int pos);
+        void add(T& element);
+        void insert(T& element, const int pos);
+        void removeAt(const int pos);
+        void remove(T element);
+        DynamicArray<T>* getArray();
+        inline void operator=(DynamicArray<T> &other);
         
     private:
         void resize();
-        void copy(T temp[]);
 };
 
 template<class T>
 DynamicArray<T>::DynamicArray() {
-    data = new T[MIN_CAPACITY];
-    size = 0;
+    this->data = new T[MIN_CAPACITY];
+    _size = 0;
+}
+
+template <class T>
+inline DynamicArray<T>::~DynamicArray(){
+    delete[] data;
 }
 
 template<class T> int DynamicArray<T>::getSize() const {
-    return this->size;
+    return this->_size;
 }
 
 template<class T> T& DynamicArray<T>::get(const int pos){
-    // assert(pos < size && pos >= 0);
+    assert(pos >= 0 && pos < _size);
     return data[pos];
 }
 
-template<class T> void DynamicArray<T>::add(T element) {
-    if(size == CURRENT_CAPACITY) {
+
+template <class T>
+void DynamicArray<T>::add(T &element)
+{
+    if(_size == capacity) {
         resize();
     }
-    data[size]=element;
-    size++;
+    data[_size] = element;
+    _size++;
 }
 
-template<class T> void DynamicArray<T>::insert(T element, const int pos) {
-    assert(pos < size && pos >= 0);
+template<class T> void DynamicArray<T>::insert(T& element, const int pos) {
+    assert(pos >= 0 && pos < _size);
 
-    if(size == CURRENT_CAPACITY) {
+    if(_size == capacity) {
         resize();
     }
 
-    size++;
+    _size++;
 
-    for(int i = size - 1; i >= pos; i--) {
+    for(int i = _size - 1; i >= pos; i--) {
         if(i == pos) {
             data[i] = element;
         } else {
@@ -69,29 +78,55 @@ template<class T> void DynamicArray<T>::insert(T element, const int pos) {
     }
 }
 
-template<class T> void DynamicArray<T>::remove(const int pos) {
-    assert(pos <= size && pos >= 0);
-
-    for(int i = pos; i < size - 1; i++) {
+template<class T> void DynamicArray<T>::removeAt(const int pos) {
+    assert(pos >= 0 && pos < _size);
+    _size--;
+    for(int i = pos; i < _size; i++) {
         data[i] = data[i+1];
     }
-
-    size--;
 }
 
 
+
+template <class T>
+inline void DynamicArray<T>::remove(T element){
+    //znajdz element
+    for(int i = 0; i < _size; i++) {
+        T temp = data[i];
+        if(temp == element) {
+            removeAt(i);
+            return;
+        }
+    }
+}
+
+// funkcja zwracajaca wskaznik na nową dynamiczną tablice
+template <class T>
+inline DynamicArray<T>* DynamicArray<T>::getArray()
+{   
+    DynamicArray<T> *newA = new DynamicArray<T>;
+    newA->capacity = this->capacity;
+    newA->data = new T[newA->capacity];
+    newA->_size = this->_size;
+    std::copy(data, data + _size, newA->data);
+    return newA; 
+}
+
+
+template <class T>
+inline void DynamicArray<T>::operator=(DynamicArray<T> &other)
+{   
+    this->capacity = other.capacity;
+    this->_size = other._size;
+    std::copy(other.data, other.data + _size, data);
+}
+
 template<class T> void DynamicArray<T>::resize() {
-    CURRENT_CAPACITY *= 2;
-    T *temp = new T[CURRENT_CAPACITY];
-    copy(temp);
+    capacity *= 2;
+    T *temp = new T[capacity];
+    std::copy(data, data + _size, temp);
     delete [] data;
     data = temp;
 }
-
-template<class T> void DynamicArray<T>::copy(T temp[]) {
-    for(int i = 0; i < size; i++) {
-        temp[i] = data[i];
-    }
-}
-
 #endif
+
