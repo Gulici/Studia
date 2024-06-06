@@ -139,13 +139,14 @@ inline void Prim::addEdgesMatrix(DynamicArray<DynamicArray<int>> &matrix, int v,
 
 inline void Prim::print(){
     int sumWeight = 0;
-    for(int i = 0; i < edges->getSize(); i++) {
+    int nE = edges->getSize();
+    for(int i = 0; i < nE; i++) {
         Edge e = edges->get(i);
-        std::cout << e;
+        if(nE < 25) std::cout << e;
         sumWeight += e.getWeight();
     } 
     std::cout<<"\nWaga sciezki: " << sumWeight <<'\n';
-    std::cout<<"Nedges: " << edges->getSize() <<'\n'; 
+    std::cout<<"Ilosc dodanych krawedzi: " << edges->getSize() <<'\n'; 
 }
  
 #endif
