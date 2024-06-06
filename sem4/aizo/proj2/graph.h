@@ -21,6 +21,7 @@ class Graph {
     public:
         Graph(int size);
         Graph(int size, int fill, bool directed);
+        Graph(DynamicArray<DynamicArray<int>> data, bool isDirected);
         void addEdge(int v1, int v2, int weight);
         void addEdge();
         DynamicArray<Edge>& getEdges();
@@ -74,6 +75,32 @@ inline Graph::Graph(int size, int fill, bool directed) {
     }
 
     delete avaibleNodes;
+}
+
+inline Graph::Graph(DynamicArray<DynamicArray<int>> data, bool isDirected) {
+    DynamicArray<int> row = data.get(0);
+    int nE = row.get(0);
+    int nV = row.get(1);
+    this->isDirected = isDirected;
+
+    _size = nV;
+    nodes = new DynamicArray<Node>;
+    edges = new DynamicArray<Edge>;
+
+    for(int i = 0; i < _size; i++) {
+        Node n = Node();
+        n.index = i;
+        nodes->add(n);
+    }
+
+    for(int i = 1; i <= nE; i++) {
+        row = data.get(i);
+        int v1 = row.get(0);
+        int v2 = row.get(1);
+        int weight = row.get(2);
+        Edge e = Edge(v1,v2,weight);
+        addEdge(v1,v2,weight);
+    }
 }
 
 void Graph::addEdge(int v1,int v2,int weight) {
