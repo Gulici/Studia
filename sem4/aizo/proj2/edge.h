@@ -13,7 +13,6 @@ class Edge{
         int &getV1();
         int &getV2();
         int &getWeight();
-        void print();
         bool operator>(Edge &other);
         bool operator<(Edge &other);
 };
@@ -38,24 +37,38 @@ int& Edge::getWeight(){
     return _weight;
 }
 
-inline void Edge::print(){
-    std::cout << "(" << _v1 <<","<<_v2<<","<<_weight<<")"<<std::endl; 
-}
-
 inline bool Edge::operator>(Edge &other)
 {   
-    return this->getWeight() > other.getWeight();
+    bool w = this->getWeight() == other.getWeight();
+    
+    if(w){
+        bool w2 = this->getV1() == other.getV1();
+        if(w2) return this->getV2() > other.getV2();
+        else return this->getV1() > other.getV1();
+    }
+    
+    else return this->getWeight() > other.getWeight();
 }
 
 inline bool Edge::operator<(Edge &other)
 {
-    return this->getWeight() < other.getWeight();
+    bool w = this->getWeight() == other.getWeight();
+    
+    if(w){
+        bool w2 = this->getV1() == other.getV1();
+        if(w2) return this->getV2() < other.getV2();
+        else return this->getV1() < other.getV1();
+    }
+
+    else return this->getWeight() < other.getWeight();
 }
 
 std::ostream& operator<<(std::ostream &out, Edge &edge) {
-    out << edge.getV1() << ' ';
-    out << edge.getV2() << ' ';
+    out << '(';
+    out << edge.getV1() << ", ";
+    out << edge.getV2() << ", ";
     out << edge.getWeight(); 
+    out << ')';
     return out;
 }
 

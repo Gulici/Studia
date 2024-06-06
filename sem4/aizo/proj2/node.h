@@ -6,25 +6,23 @@
 
 struct Node {
     int index;
-    DynamicArray<Edge> *edges;
+    DynamicArray<Edge> edges;
     bool connected = false;
     Node();
+    ~Node();
     bool operator==(Node &other);
-    // void operator=(Node &other);
 };
 
 Node::Node() {
-    this->edges = new DynamicArray<Edge>;
+}
+
+Node::~Node() {
 }
 
 inline bool Node::operator==(Node &other){
     return index == other.index;
 }
 
-// inline void Node::operator=(Node &other) {
-//     this->index = other.index;
-//     this->edges = other.edges;
-// } 
 
 
 

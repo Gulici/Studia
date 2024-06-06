@@ -30,13 +30,13 @@ class DynamicArray {
 
 template<class T>
 DynamicArray<T>::DynamicArray() {
-    this->data = new T[MIN_CAPACITY];
+    data = new T[MIN_CAPACITY];
     _size = 0;
 }
 
 template <class T>
 inline DynamicArray<T>::~DynamicArray(){
-    delete data;
+    // delete[] data;
 }
 
 template<class T> int DynamicArray<T>::getSize() const {
@@ -60,7 +60,7 @@ void DynamicArray<T>::add(T &element)
 }
 
 template<class T> void DynamicArray<T>::insert(T& element, const int pos) {
-    assert(pos >= 0 && pos < _size);
+    assert(pos >= 0 && pos <= _size);
 
     if(_size == capacity) {
         resize();
@@ -117,6 +117,8 @@ inline void DynamicArray<T>::operator=(DynamicArray<T> &other)
 {   
     this->capacity = other.capacity;
     this->_size = other._size;
+    delete[] data;
+    data = new T[capacity];
     std::copy(other.data, other.data + _size, data);
 }
 
@@ -124,7 +126,7 @@ template<class T> void DynamicArray<T>::resize() {
     capacity *= 2;
     T *temp = new T[capacity];
     std::copy(data, data + _size, temp);
-    delete [] data;
+    delete[] data;
     data = temp;
 }
 #endif

@@ -52,7 +52,7 @@ template <class T>
 inline void Heap<T>::pop(){
     // zamiana korzenia z ostatnim dzieckiem
     swap(queue.get(0), queue.get(last-1));
-    queue.remove(last-1);
+    queue.removeAt(last-1);
     last--;
     // odbudowa kopca
     buildHeap(0);
